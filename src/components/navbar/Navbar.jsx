@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`flex items-center justify-between px-5 py-3 lg:py-0 bg-[#eee] ${
+      className={`flex items-center justify-between px-5 py-3 lg:py-0  ${
         mobileTab ? "border-b-2 border-black" : ""
       }`}
     >
@@ -40,64 +40,67 @@ const Navbar = () => {
       <ul
         className={`${
           mobileTab ? "flex" : "hidden"
-        } text-[18px] flex-col gap-[18px] justify-center items-center absolute top-18 left-0 bg-[#eee] w-full py-[20px] lg:flex lg:flex-row lg:relative lg:top-0 lg:gap-3`}
+        } text-[18px] flex-col gap-[18px] justify-center items-center absolute top-18 left-0  w-full py-[20px] lg:flex lg:flex-row lg:relative lg:top-0 lg:gap-3`}
       >
         <li>Home</li>
-        
+
         {/* Graphics Design Dropdown */}
-        <li
-          onClick={() => handleDropdown("graphics")}
-          onMouseEnter={()=> handleDropdown("graphics")}
-          className="flex gap-2 items-center cursor-pointer"
+        <div
+          onMouseEnter={() => handleDropdown("graphics")}
+          onMouseLeave={() => handleDropdown("graphics")}
+          className="  relative"
         >
-          Graphics Design <ImArrowDownRight />
-        </li>
-        {toggleDropdown.graphics && (
-          <ul 
-          onMouseLeave={()=>  handleDropdown("graphics")}
-          className="flex flex-col gap-[10px]  text-[17px] lg:absolute lg:top-[110%] lg:right-[60%] lg:px-[10px] lg:bg-[#eee]">
-            <li>Logo Design</li>
-            <li>Banner Design</li>
-            <li>UI/UX Design</li>
-          </ul>
-        )}
+          <li
+            onClick={() => handleDropdown("graphics")}
+            className="flex gap-2 items-center cursor-pointer"
+          >
+            Graphics Design <ImArrowDownRight />
+          </li>
+          {toggleDropdown.graphics && (
+            <ul className="flex flex-col justify-center items-center w-[100%] gap-[10px] text-[17px] lg:absolute lg:top-[110%]  lg:px-[10px] lg:bg-[#eee]">
+              <li>Logo Design</li>
+              <li>Banner Design</li>
+              <li>UI/UX Design</li>
+            </ul>
+          )}
+        </div>
 
         {/* Website Development Dropdown */}
-        <li
-          onClick={() => handleDropdown("web")}
-           onMouseEnter={()=> handleDropdown("web")}
-          className="flex gap-2 items-center cursor-pointer"
+        <div
+          onMouseEnter={() => handleDropdown("web")}
+          onMouseLeave={() => handleDropdown("web")}
+          className="relative"
         >
-          Website Development <ImArrowDownRight />
-        </li>
-        {toggleDropdown.web && (
-          <ul 
-          onMouseLeave={()=>  handleDropdown("web")}
-          className="flex flex-col gap-[10px]  text-[17px] lg:absolute lg:top-[110%] lg:bg-[#eee]">
-            <li>Frontend Development</li>
-            <li>Backend Development</li>
-            <li>Full Stack Development</li>
-          </ul>
-        )}
+          <li className="flex gap-2 items-center cursor-pointer">
+            Website Development <ImArrowDownRight />
+          </li>
+          {toggleDropdown.web && (
+            <ul className="flex flex-col justify-center  items-center gap-[10px]  w-[100%] text-[17px] lg:absolute lg:top-[110%] lg:bg-[#eee]">
+              <li>Frontend Development</li>
+              <li>Backend Development</li>
+              <li>Full Stack Development</li>
+            </ul>
+          )}
+        </div>
 
         {/* Digital Marketing Dropdown */}
-        <li
-          onClick={() => handleDropdown("marketing")}
-          onMouseEnter={()=> handleDropdown("marketing")}
-          className="flex gap-2 items-center cursor-pointer"
+        <div
+          onMouseEnter={() => handleDropdown("marketing")}
+          onMouseLeave={() => handleDropdown("marketing")}
+          className="relative"
         >
-          Digital Marketing <ImArrowDownRight />
-        </li>
-        {toggleDropdown.marketing && (
-          <ul 
-          onMouseLeave={()=>  handleDropdown("marketing")}
-          className="flex flex-col justify-center items-center gap-[10px] text-[17px] lg:absolute lg:top-[110%] lg:right-[30%] lg:bg-[#eee]">
-            <li>SEO</li>
-            <li>Social Media Marketing</li>
-            <li>Content Marketing</li>
-          </ul>
-        )}
-
+          <li className="flex gap-2 items-center cursor-pointer">
+            Digital Marketing <ImArrowDownRight />
+          </li>
+          {toggleDropdown.marketing && (
+            <ul className="flex flex-col justify-center items-center w-[260px]  gap-[10px] text-[17px] lg:absolute lg:top-[110%]  lg:bg-[#eee]"
+            >
+              <li>SEO</li>
+              <li>Social Media Marketing</li>
+              <li>Content Marketing</li>
+            </ul>
+          )}
+        </div>
         <li>Contact Us</li>
       </ul>
 
