@@ -47,12 +47,15 @@ const Navbar = () => {
         {/* Graphics Design Dropdown */}
         <li
           onClick={() => handleDropdown("graphics")}
+          onMouseEnter={()=> handleDropdown("graphics")}
           className="flex gap-2 items-center cursor-pointer"
         >
           Graphics Design <ImArrowDownRight />
         </li>
         {toggleDropdown.graphics && (
-          <ul className="flex flex-col gap-[10px]  text-[17px] lg:absolute lg:top-[130%] lg:right-[60%] lg:px-[10px] lg:bg-[#eee]">
+          <ul 
+          onMouseLeave={()=>  handleDropdown("graphics")}
+          className="flex flex-col gap-[10px]  text-[17px] lg:absolute lg:top-[110%] lg:right-[60%] lg:px-[10px] lg:bg-[#eee]">
             <li>Logo Design</li>
             <li>Banner Design</li>
             <li>UI/UX Design</li>
@@ -62,12 +65,15 @@ const Navbar = () => {
         {/* Website Development Dropdown */}
         <li
           onClick={() => handleDropdown("web")}
+           onMouseEnter={()=> handleDropdown("web")}
           className="flex gap-2 items-center cursor-pointer"
         >
           Website Development <ImArrowDownRight />
         </li>
         {toggleDropdown.web && (
-          <ul className="flex flex-col gap-[10px]  text-[17px] lg:absolute lg:top-[130%] lg:bg-[#eee]">
+          <ul 
+          onMouseLeave={()=>  handleDropdown("web")}
+          className="flex flex-col gap-[10px]  text-[17px] lg:absolute lg:top-[110%] lg:bg-[#eee]">
             <li>Frontend Development</li>
             <li>Backend Development</li>
             <li>Full Stack Development</li>
@@ -77,12 +83,15 @@ const Navbar = () => {
         {/* Digital Marketing Dropdown */}
         <li
           onClick={() => handleDropdown("marketing")}
+          onMouseEnter={()=> handleDropdown("marketing")}
           className="flex gap-2 items-center cursor-pointer"
         >
           Digital Marketing <ImArrowDownRight />
         </li>
         {toggleDropdown.marketing && (
-          <ul className="flex flex-col justify-center items-center gap-[10px] text-[17px] lg:absolute lg:top-[130%] lg:right-[30%] lg:bg-[#eee]">
+          <ul 
+          onMouseLeave={()=>  handleDropdown("marketing")}
+          className="flex flex-col justify-center items-center gap-[10px] text-[17px] lg:absolute lg:top-[110%] lg:right-[30%] lg:bg-[#eee]">
             <li>SEO</li>
             <li>Social Media Marketing</li>
             <li>Content Marketing</li>
