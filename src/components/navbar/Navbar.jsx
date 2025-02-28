@@ -1,112 +1,243 @@
-import React, { useState } from "react";
-import { TiThMenu } from "react-icons/ti";
-import { ImArrowDownRight } from "react-icons/im";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { FaBarsStaggered } from "react-icons/fa6";
+import { FaBars } from "react-icons/fa6";
 
 const Navbar = () => {
-  const [mobileTab, setMobileTab] = useState(false);
-  const [toggleDropdown, setToggleDropdown] = useState({
-    graphics: false,
-    web: false,
-    marketing: false,
-  });
+  let [menu, setMenu] = useState(true);
 
-  const handleDropdown = (menu) => {
-    setToggleDropdown((prevState) => ({
-      graphics: menu === "graphics" ? !prevState.graphics : false,
-      web: menu === "web" ? !prevState.web : false,
-      marketing: menu === "marketing" ? !prevState.marketing : false,
-    }));
+  let [graphic, setGraphic] = useState(false);
+  const [website, setWebsite] = useState(false);
+  const [digital, setDigital] = useState(false);
+
+  let handleMenu = () => {
+    setMenu(!menu);
   };
 
+  useEffect(() => {
+    function navbar(e) {
+      if (window.innerWidth < 1024) {
+        setMenu(false);
+      } else {
+        setMenu(true);
+      }
+    }
+    navbar();
+    window.addEventListener("resize", navbar);
+  }, []);
   return (
-    <nav
-      className={`flex items-center justify-between px-5 py-3 lg:py-0  ${
-        mobileTab ? "border-b-2 border-black" : ""
-      }`}
-    >
-      {/* Logo */}
-      <p className="text-green-500 text-[30px]">Logo</p>
+    <nav className="bg-white  border-b-2  p-4 lg:p-2 z-50 w-full ">
+      <div className="container mx-auto">
+        <div className="flex justify-between items-center px-3 lg:px-0">
+          <Link>
+            <p>Logo </p>
+          </Link>
 
-      {/* Mobile Menu Toggle */}
-      <div className="flex justify-center gap-4 items-center lg:hidden">
-        <p className="text-[20px] hover:underline cursor-pointer">Login</p>
-        <TiThMenu
-          className="text-[33px] w-[50px] cursor-pointer"
-          onClick={() => setMobileTab(!mobileTab)}
-        />
-      </div>
+          {menu ? (
+            <FaBarsStaggered
+              onClick={handleMenu}
+              className="text-[22px] lg:hidden absolute  right-6 lg:right-14"
+            />
+          ) : (
+            <FaBars
+              onClick={handleMenu}
+              className="text-[22px] lg:hidden absolute  right-6 lg:right-12"
+            />
+          )}
+          {menu && (
+            <ul className=" bg-slate-700 w-[200px] lg:bg-transparent p-2 rounded-[3px] absolute top-[72px] z-30 right-5 lg:static  lg:flex ">
+              {/* --- Home  --- */}
+              <Link
+                to={"/"}
+                className="font-nunito font-medium   lg:text-pera text-[18px]"
+              >
+                <li className="py-[10px] hover:bg-gray-100 text-white hover:text-slate-700   hover:rounded-[4px]">
+                  Home
+                </li>
+              </Link>
+              {/* --- Graphic Design --- */}
 
-      {/* Navigation Links */}
-      <ul
-        className={`${
-          mobileTab ? "flex" : "hidden"
-        } text-[18px] flex-col gap-[18px] justify-center items-center absolute top-18 left-0  w-full py-[20px] lg:flex lg:flex-row lg:relative lg:top-0 lg:gap-3`}
-      >
-        <li>Home</li>
+              <li
+                className={`relative font-nunito font-medium lg:text-pera text-[18px]   py-[10px] hover:bg-gray-100 text-white hover:text-slate-700  hover:rounded-[4px]`}
+                onClick={() => {
+                  setGraphic(!graphic);
+                  setWebsite(false);
+                  setDigital(false);
+                }}
+                onMouseEnter={() => {
+                  setGraphic(!graphic);
+                  setWebsite(false);
+                  setDigital(false);
+                }}
+                onMouseLeave={() => {
+                  setGraphic(!graphic);
+                  setWebsite(false);
+                  setDigital(false);
+                }}
+              >
+                Graphic Design
+                <ul
+                  className={`labsolute z-20 top-[46px] left-0  ${
+                    graphic ? "block" : "hidden"
+                  }  bg-white shadow-md w-[195px] `}
+                >
+                  <Link
+                    to={"best-online-logo-design-service-agency/"}
+                    className="font-nunito font-medium  lg:text-pera text-[18px] "
+                  >
+                    <li className=" px-3 py-2 border border-slate-700  text-slate-700 ">
+                      Logo Design
+                    </li>
+                  </Link>
 
-        {/* Graphics Design Dropdown */}
-        <div
-          onMouseEnter={() => handleDropdown("graphics")}
-          onMouseLeave={() => handleDropdown("graphics")}
-          className="  relative"
-        >
-          <li
-            onClick={() => handleDropdown("graphics")}
-            className="flex gap-2 items-center cursor-pointer"
-          >
-            Graphics Design <ImArrowDownRight />
-          </li>
-          {toggleDropdown.graphics && (
-            <ul className="flex flex-col justify-center items-center w-[100%] gap-[10px] text-[17px] lg:absolute lg:top-[110%]  lg:px-[10px] lg:bg-[#eee]">
-              <li>Logo Design</li>
-              <li>Banner Design</li>
-              <li>UI/UX Design</li>
+                  <Link
+                    to={"stationery-design-services-agency/"}
+                    className="font-nunito font-medium text-pera text-[18px]"
+                  >
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700 ">
+                      Stationary Design
+                    </li>
+                  </Link>
+
+                  <Link
+                    to={"remove-background/"}
+                    className="font-nunito font-medium text-pera text-[18px]"
+                  >
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700 ">
+                      Remove Background
+                    </li>
+                  </Link>
+
+                  <Link
+                    to={"best-t-shirt-design-services-agency/"}
+                    className="font-nunito font-medium text-pera text-[18px]"
+                  >
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700">
+                      T Shirt Design
+                    </li>
+                  </Link>
+
+                  <Link
+                    to={"packaging-label-design-services/"}
+                    className="font-nunito font-medium text-pera text-[18px]"
+                  >
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700">
+                      Label Design
+                    </li>
+                  </Link>
+
+                  <Link
+                    to={"flyer-design/"}
+                    className="font-nunito font-medium text-pera text-[18px]"
+                  >
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700">
+                      Flyer Design
+                    </li>
+                  </Link>
+
+                  <Link
+                    to={"luxury-candle-label-design-ideas/"}
+                    className="font-nunito font-medium text-pera text-[18px]"
+                  >
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700">
+                      Candle Label Design
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+
+              {/* --- Website Development --- */}
+              <li
+                className="relative py-[10px] font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white hover:text-slate-700 hover:rounded-[4px]"
+                onClick={() => {
+                  setWebsite(!website);
+                  setGraphic(false);
+                  setDigital(false);
+                }}
+                onMouseEnter={() => {
+                  setWebsite(!website);
+                  setGraphic(false);
+                  setDigital(false);
+                }}
+                onMouseLeave={() => {
+                  setWebsite(!website);
+                  setGraphic(false);
+                  setDigital(false);
+                }}
+              >
+                Website Development
+                <ul
+                  className={` top-[46px] left-0  ${
+                    website ? "block" : "hidden"
+                  }  bg-white shadow-md `}
+                >
+                  <Link
+                    to={"wix-website-design-service-agency/"}
+                    className="font-nunito font-medium text-white lg:text-pera text-[18px] "
+                  >
+                    <li className="px-2 py-2 border border-slate-700  text-slate-700 ">
+                      Wix Website Design
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+              {/* --- Digital Marketing --- */}
+
+              <li
+                className=" relative py-[10px] font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white hover:text-slate-700 hover:rounded-[4px]"
+                onClick={() => {
+                  setDigital(!digital);
+                  setGraphic(false);
+                  setWebsite(false);
+                }}
+                onMouseEnter={() => {
+                  setDigital(!digital);
+                  setGraphic(false);
+                  setWebsite(false);
+                }}
+                onMouseLeave={() => {
+                  setDigital(!digital);
+                  setGraphic(false);
+                  setWebsite(false);
+                }}
+              >
+                Digital Marketing
+                <ul
+                  className={`top-[46px] left-0  ${
+                    digital ? "block" : "hidden"
+                  }  bg-white shadow-md w-[170px]  `}
+                >
+                  <Link
+                    to={"seo-optimization-service/"}
+                    className="font-nunito font-medium text-white lg:text-pera text-[18px] "
+                  >
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700">
+                      Seo Optimization
+                    </li>
+                  </Link>
+                </ul>
+              </li>
+              {/* --- Contact Us --- */}
+              <Link
+                to={"digital-service-agency-contact-us/"}
+                className="font-nunito font-medium text-white lg:text-pera text-[18px]"
+              >
+                <li className="py-[10px] hover:bg-gray-100 text-white hover:text-slate-700   hover:rounded-[4px]">
+                  Contact Us
+                </li>
+              </Link>
             </ul>
           )}
-        </div>
 
-        {/* Website Development Dropdown */}
-        <div
-          onMouseEnter={() => handleDropdown("web")}
-          onMouseLeave={() => handleDropdown("web")}
-          className="relative"
-        >
-          <li className="flex gap-2 items-center cursor-pointer">
-            Website Development <ImArrowDownRight />
-          </li>
-          {toggleDropdown.web && (
-            <ul className="flex flex-col justify-center  items-center gap-[10px]  w-[100%] text-[17px] lg:absolute lg:top-[110%] lg:bg-[#eee]">
-              <li>Frontend Development</li>
-              <li>Backend Development</li>
-              <li>Full Stack Development</li>
-            </ul>
-          )}
-        </div>
-
-        {/* Digital Marketing Dropdown */}
-        <div
-          onMouseEnter={() => handleDropdown("marketing")}
-          onMouseLeave={() => handleDropdown("marketing")}
-          className="relative"
-        >
-          <li className="flex gap-2 items-center cursor-pointer">
-            Digital Marketing <ImArrowDownRight />
-          </li>
-          {toggleDropdown.marketing && (
-            <ul className="flex flex-col justify-center items-center w-[260px]  gap-[10px] text-[17px] lg:absolute lg:top-[110%]  lg:bg-[#eee]"
+          <div className="hidden lg:block">
+            <Link
+              to={"/registration"}
+              className="font-nunito font-medium text-pera text-[18px] border border-[#44CE6F] hover:border-[#C679E3]  hover:text-pera hover:duration-700  px-[34px] py-[7px]   border-1.5  rounded-[5px] "
             >
-              <li>SEO</li>
-              <li>Social Media Marketing</li>
-              <li>Content Marketing</li>
-            </ul>
-          )}
+              Login
+            </Link>
+          </div>
         </div>
-        <li>Contact Us</li>
-      </ul>
-
-      {/* Desktop Login */}
-      <div className="hidden lg:block">
-        <p className="text-[20px] hover:underline cursor-pointer">Login</p>
       </div>
     </nav>
   );
