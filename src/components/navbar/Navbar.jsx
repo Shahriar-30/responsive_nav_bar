@@ -26,7 +26,7 @@ const Navbar = () => {
     window.addEventListener("resize", navbar);
   }, []);
   return (
-    <nav className="bg-white  border-b-2  p-4 lg:p-2 z-50 w-full ">
+    <nav className="bg-white  border-b-2  p-4  lg:p-0 z-50 w-full ">
       <div className="container mx-auto">
         <div className="flex justify-between items-center px-3 lg:px-0">
           <Link>
@@ -45,20 +45,20 @@ const Navbar = () => {
             />
           )}
           {menu && (
-            <ul className=" bg-slate-700 w-[200px] lg:bg-transparent p-2 rounded-[3px] absolute top-[72px] z-30 right-5 lg:static  lg:flex ">
+            <ul className=" bg-slate-700 w-[200px] lg:bg-transparent lg:w-full lg:items-center lg:justify-center lg:gap-4 p-2 rounded-[3px] absolute top-[72px] z-30 right-5 lg:static  lg:flex ">
               {/* --- Home  --- */}
               <Link
                 to={"/"}
                 className="font-nunito font-medium   lg:text-pera text-[18px]"
               >
-                <li className="py-[10px] hover:bg-gray-100 text-white hover:text-slate-700   hover:rounded-[4px]">
+                <li className="py-[10px] hover:bg-gray-100 text-white hover:text-slate-700 lg:text-slate-700 lg:px-4   hover:rounded-[4px]">
                   Home
                 </li>
               </Link>
               {/* --- Graphic Design --- */}
 
               <li
-                className={`relative font-nunito font-medium lg:text-pera text-[18px]   py-[10px] hover:bg-gray-100 text-white hover:text-slate-700  hover:rounded-[4px]`}
+                className={` cursor-pointer relative font-nunito font-medium lg:text-pera text-[18px]   py-[10px] lg:px-5 hover:bg-gray-100 text-white lg:text-slate-700 hover:text-slate-700  hover:rounded-[4px]`}
                 onClick={() => {
                   setGraphic(!graphic);
                   setWebsite(false);
@@ -77,15 +77,15 @@ const Navbar = () => {
               >
                 Graphic Design
                 <ul
-                  className={`labsolute z-20 top-[46px] left-0  ${
+                  className={`lg:absolute lg:px-0 z-20 top-[46px] left-0  ${
                     graphic ? "block" : "hidden"
-                  }  bg-white shadow-md w-[195px] `}
+                  }  bg-white shadow-md w-[195px] lg:w-[200px] lg:top-[100%] lg:bg-slate-700 `}
                 >
                   <Link
                     to={"best-online-logo-design-service-agency/"}
                     className="font-nunito font-medium  lg:text-pera text-[18px] "
                   >
-                    <li className=" px-3 py-2 border border-slate-700  text-slate-700 ">
+                    <li className=" px-3 py-2 border border-slate-700  text-slate-700 lg:text-white lg:border-white">
                       Logo Design
                     </li>
                   </Link>
@@ -94,7 +94,7 @@ const Navbar = () => {
                     to={"stationery-design-services-agency/"}
                     className="font-nunito font-medium text-pera text-[18px]"
                   >
-                    <li className="px-3 py-2 border border-slate-700  text-slate-700 ">
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700 lg:text-white lg:border-white">
                       Stationary Design
                     </li>
                   </Link>
@@ -103,7 +103,7 @@ const Navbar = () => {
                     to={"remove-background/"}
                     className="font-nunito font-medium text-pera text-[18px]"
                   >
-                    <li className="px-3 py-2 border border-slate-700  text-slate-700 ">
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700 lg:text-white lg:border-white">
                       Remove Background
                     </li>
                   </Link>
@@ -112,7 +112,7 @@ const Navbar = () => {
                     to={"best-t-shirt-design-services-agency/"}
                     className="font-nunito font-medium text-pera text-[18px]"
                   >
-                    <li className="px-3 py-2 border border-slate-700  text-slate-700">
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700 lg:text-white lg:border-white">
                       T Shirt Design
                     </li>
                   </Link>
@@ -121,7 +121,7 @@ const Navbar = () => {
                     to={"packaging-label-design-services/"}
                     className="font-nunito font-medium text-pera text-[18px]"
                   >
-                    <li className="px-3 py-2 border border-slate-700  text-slate-700">
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700 lg:text-white lg:border-white">
                       Label Design
                     </li>
                   </Link>
@@ -130,7 +130,7 @@ const Navbar = () => {
                     to={"flyer-design/"}
                     className="font-nunito font-medium text-pera text-[18px]"
                   >
-                    <li className="px-3 py-2 border border-slate-700  text-slate-700">
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700 lg:text-white lg:border-white">
                       Flyer Design
                     </li>
                   </Link>
@@ -139,7 +139,7 @@ const Navbar = () => {
                     to={"luxury-candle-label-design-ideas/"}
                     className="font-nunito font-medium text-pera text-[18px]"
                   >
-                    <li className="px-3 py-2 border border-slate-700  text-slate-700">
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700 lg:text-white lg:border-white">
                       Candle Label Design
                     </li>
                   </Link>
@@ -148,7 +148,7 @@ const Navbar = () => {
 
               {/* --- Website Development --- */}
               <li
-                className="relative py-[10px] font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white hover:text-slate-700 hover:rounded-[4px]"
+                className="relative py-[10px] lg:px-5 font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white lg:text-slate-700 cursor-pointer  hover:text-slate-700 hover:rounded-[4px]"
                 onClick={() => {
                   setWebsite(!website);
                   setGraphic(false);
@@ -169,13 +169,13 @@ const Navbar = () => {
                 <ul
                   className={` top-[46px] left-0  ${
                     website ? "block" : "hidden"
-                  }  bg-white shadow-md `}
+                  }  bg-white shadow-md lg:absolute lg:top-[100%]   lg:left-0 lg:w-[220px] lg:bg-slate-700`}
                 >
                   <Link
                     to={"wix-website-design-service-agency/"}
                     className="font-nunito font-medium text-white lg:text-pera text-[18px] "
                   >
-                    <li className="px-2 py-2 border border-slate-700  text-slate-700 ">
+                    <li className="px-2 py-2 border border-slate-700  text-slate-700 lg:text-white lg:border-white">
                       Wix Website Design
                     </li>
                   </Link>
@@ -184,7 +184,7 @@ const Navbar = () => {
               {/* --- Digital Marketing --- */}
 
               <li
-                className=" relative py-[10px] font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white hover:text-slate-700 hover:rounded-[4px]"
+                className=" relative py-[10px] lg:px-5 font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white lg:text-slate-700 cursor-pointer hover:text-slate-700 hover:rounded-[4px]"
                 onClick={() => {
                   setDigital(!digital);
                   setGraphic(false);
@@ -205,13 +205,13 @@ const Navbar = () => {
                 <ul
                   className={`top-[46px] left-0  ${
                     digital ? "block" : "hidden"
-                  }  bg-white shadow-md w-[170px]  `}
+                  }  bg-white shadow-md w-[170px] lg:absolute lg:top-[100%] lg:bg-slate-700 lg:w-[180px]`}
                 >
                   <Link
                     to={"seo-optimization-service/"}
                     className="font-nunito font-medium text-white lg:text-pera text-[18px] "
                   >
-                    <li className="px-3 py-2 border border-slate-700  text-slate-700">
+                    <li className="px-3 py-2 border border-slate-700  text-slate-700 lg:text-white lg:border-white">
                       Seo Optimization
                     </li>
                   </Link>
@@ -222,7 +222,7 @@ const Navbar = () => {
                 to={"digital-service-agency-contact-us/"}
                 className="font-nunito font-medium text-white lg:text-pera text-[18px]"
               >
-                <li className="py-[10px] hover:bg-gray-100 text-white hover:text-slate-700   hover:rounded-[4px]">
+                <li className="py-[10px] hover:bg-gray-100 text-white lg:px-5 lg:text-slate-700 hover:text-slate-700   hover:rounded-[4px]">
                   Contact Us
                 </li>
               </Link>
