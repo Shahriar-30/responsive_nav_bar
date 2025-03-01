@@ -58,7 +58,7 @@ const Navbar = () => {
               {/* --- Graphic Design --- */}
 
               <li
-                className={` cursor-pointer relative font-nunito font-medium lg:text-pera text-[18px]   py-[10px] lg:px-5 hover:bg-gray-100 text-white lg:text-slate-700 hover:text-slate-700  hover:rounded-[4px]`}
+                className={` cursor-pointer relative font-nunito font-medium lg:text-pera text-[18px] hover:pb-[0px] py-[10px] lg:px-5 hover:bg-gray-100 text-white lg:text-slate-700 hover:text-slate-700  hover:rounded-[4px]`}
                 onClick={() => {
                   setGraphic(!graphic);
                   setWebsite(false);
@@ -148,7 +148,7 @@ const Navbar = () => {
 
               {/* --- Website Development --- */}
               <li
-                className="relative py-[10px] lg:px-5 font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white lg:text-slate-700 cursor-pointer  hover:text-slate-700 hover:rounded-[4px]"
+                className="relative hover:pb-0 py-[10px] lg:px-5 font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white lg:text-slate-700 cursor-pointer  hover:text-slate-700 hover:rounded-[4px]"
                 onClick={() => {
                   setWebsite(!website);
                   setGraphic(false);
@@ -184,7 +184,7 @@ const Navbar = () => {
               {/* --- Digital Marketing --- */}
 
               <li
-                className=" relative py-[10px] lg:px-5 font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white lg:text-slate-700 cursor-pointer hover:text-slate-700 hover:rounded-[4px]"
+                className=" relative hover:pb-0 py-[10px] lg:px-5 font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white lg:text-slate-700 cursor-pointer hover:text-slate-700 hover:rounded-[4px]"
                 onClick={() => {
                   setDigital(!digital);
                   setGraphic(false);
@@ -205,7 +205,7 @@ const Navbar = () => {
                 <ul
                   className={`top-[46px] left-0  ${
                     digital ? "block" : "hidden"
-                  }  bg-white shadow-md w-[170px] lg:absolute lg:top-[100%] lg:bg-slate-700 lg:w-[180px]`}
+                  }  bg-white shadow-md  w-[100%] lg:absolute lg:top-[100%] lg:bg-slate-700 lg:w-[180px]`}
                 >
                   <Link
                     to={"seo-optimization-service/"}
