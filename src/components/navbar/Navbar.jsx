@@ -79,7 +79,7 @@ const Navbar = () => {
                 <ul
                   className={`lg:absolute lg:px-0 z-20 top-[46px] left-0  ${
                     graphic ? "block" : "hidden"
-                  }  bg-white shadow-md w-[195px] lg:w-[200px] lg:top-[100%] lg:bg-slate-700 `}
+                  }  bg-white shadow-md w-[190px] lg:w-[195px] lg:top-[100%] lg:bg-slate-700 `}
                 >
                   <Link
                     to={"best-online-logo-design-service-agency/"}
