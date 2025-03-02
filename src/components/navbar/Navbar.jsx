@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white  border-b-2  p-4  lg:p-0 z-50 w-full ">
       <div className="container mx-auto">
-        <div className="flex justify-between items-center px-3 lg:px-0">
+        <div className="flex justify-between items-center ">
           <Link>
             <p>Logo </p>
           </Link>
@@ -58,19 +58,19 @@ const Navbar = () => {
               {/* --- Graphic Design --- */}
 
               <li
-                className={` cursor-pointer relative font-nunito font-medium lg:text-pera text-[18px] hover:pb-[0px] py-[10px] lg:px-5 hover:bg-gray-100 text-white lg:text-slate-700 hover:text-slate-700  hover:rounded-[4px]`}
+                className={` cursor-pointer relative font-nunito font-medium lg:text-pera text-[18px] hover:pb-[0px] lg:hover:pb-[10px] py-[10px] lg:px-5 hover:bg-gray-100 text-white lg:text-slate-700 hover:text-slate-700  hover:rounded-[4px]`}
                 onClick={() => {
                   setGraphic(!graphic);
                   setWebsite(false);
                   setDigital(false);
                 }}
                 onMouseEnter={() => {
-                  setGraphic(!graphic);
+                  setGraphic(true);
                   setWebsite(false);
                   setDigital(false);
                 }}
                 onMouseLeave={() => {
-                  setGraphic(!graphic);
+                  setGraphic(false);
                   setWebsite(false);
                   setDigital(false);
                 }}
@@ -148,19 +148,19 @@ const Navbar = () => {
 
               {/* --- Website Development --- */}
               <li
-                className="relative hover:pb-0 py-[10px] lg:px-5 font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white lg:text-slate-700 cursor-pointer  hover:text-slate-700 hover:rounded-[4px]"
+                className="relative hover:pb-0 py-[10px] lg:hover:pb-[10px]  lg:px-5 font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white lg:text-slate-700 cursor-pointer  hover:text-slate-700 hover:rounded-[4px]"
                 onClick={() => {
                   setWebsite(!website);
                   setGraphic(false);
                   setDigital(false);
                 }}
                 onMouseEnter={() => {
-                  setWebsite(!website);
+                  setWebsite(true);
                   setGraphic(false);
                   setDigital(false);
                 }}
                 onMouseLeave={() => {
-                  setWebsite(!website);
+                  setWebsite(false);
                   setGraphic(false);
                   setDigital(false);
                 }}
@@ -184,19 +184,19 @@ const Navbar = () => {
               {/* --- Digital Marketing --- */}
 
               <li
-                className=" relative hover:pb-0 py-[10px] lg:px-5 font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white lg:text-slate-700 cursor-pointer hover:text-slate-700 hover:rounded-[4px]"
+                className=" relative hover:pb-0 lg:hover:pb-[10px]  py-[10px] lg:px-5 font-nunito font-medium   lg:text-pera text-[18px]  hover:bg-gray-100 text-white lg:text-slate-700 cursor-pointer hover:text-slate-700 hover:rounded-[4px]"
                 onClick={() => {
                   setDigital(!digital);
                   setGraphic(false);
                   setWebsite(false);
                 }}
                 onMouseEnter={() => {
-                  setDigital(!digital);
+                  setDigital(true);
                   setGraphic(false);
                   setWebsite(false);
                 }}
                 onMouseLeave={() => {
-                  setDigital(!digital);
+                  setDigital(false);
                   setGraphic(false);
                   setWebsite(false);
                 }}
